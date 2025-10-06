@@ -1,25 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>House Price Prediction</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-        a { color: #0070f3; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8">
+  <title>🏠 House Price Prediction</title>
+  <style>
+    body {
+      font-family: 'Arial';
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0078d7;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    form {
+      background-color: white;
+      width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .result {
+      text-align: center;
+      background: #eaf4ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #0078d7;
+      font-weight: bold;
+    }
+
+  </style>
 </head>
 <body>
-    <h1>🏠 House Price Prediction Project</h1>
-    <p>This project predicts house prices using machine learning.</p>
-    
-    <h2>📁 Project Files:</h2>
-    <ul>
-        <li><a href="README.md">Project Documentation</a></li>
-        <li><a href="house_price_predictor.py">Python Prediction Script</a></li>
-        <li><a href="categorical_distribution.png">Data Visualization 1</a></li>
-        <li><a href="correlation_heatmap.png">Data Visualization 2</a></li>
-    </ul>
-    
-    <h2>🚀 Deployment Status: Successfully deployed on Vercel!</h2>
+  <header>
+    <h1>🏡 House Price Prediction System</h1>
+  </header>
+
+  <form action="/predict" method="post">
+    <h2>Enter House Details</h2>
+
+    <label for="area">Area (in sq.ft):</label>
+    <input type="text" id="area" name="area" placeholder="e.g. 1200" required>
+
+    <label for="bedrooms">Number of Bedrooms:</label>
+    <input type="text" id="bedrooms" name="bedrooms" placeholder="e.g. 3" required>
+
+    <label for="bathrooms">Number of Bathrooms:</label>
+    <input type="text" id="bathrooms" name="bathrooms" placeholder="e.g. 2" required>
+
+    <button type="submit">Predict Price</button>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </form>
 </body>
 </html>
